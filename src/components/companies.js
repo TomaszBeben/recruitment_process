@@ -1,32 +1,34 @@
 import React,{useState, useEffect} from 'react';
+import Incomes from '../incomes';
 // import ReactDOM from 'react-dom';
 
 
-const Companies = (props) => {
-    const [data, setData] = useState([]);
-    const [err, setErr] = useState("")
+const Companies = (id) => {
+    const [companies, setCompanies] = useState([]);
+   
    
     useEffect(() => {
       fetch("https://recruitment.hal.skygate.io/companies")
       .then(response =>{
-        console.log(response);
-        if (response.status === 200) return response.json();
-        else setErr('ERROR!!')
-        
+        return response.json();
     })
-    .then(data => {
-        console.log(data);
-        setData(data);
+    .then(companies => {
+        setCompanies(companies);
+        console.log(id);
     })
+    
+    
     },[]);
    
     return(
         <>
         <ul>
-            {data.map(data =>(
-                <li key={data.id}>
-                <h3>{data.id} {data.name}</h3>
-                <data> {data.city}</data>
+            {companies.map(company =>(
+                <li key={company.id}>
+                <h3>id:{company.id} name: {company.name}</h3>
+                <data>city: {company.city}</data>
+                
+                
                 </li>
     ))}
         </ul>
