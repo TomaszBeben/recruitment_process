@@ -14,7 +14,6 @@ const Companies = (id) => {
     })
     .then(companies => {
         setCompanies(companies);
-        console.log(id);
     })
     
     
@@ -27,6 +26,9 @@ const Companies = (id) => {
                 <li key={company.id}>
                 <h3>id:{company.id} name: {company.name}</h3>
                 <data>city: {company.city}</data>
+                <Incomes props={company.id}/>
+                
+                
                 
                 
                 </li>
@@ -36,4 +38,5 @@ const Companies = (id) => {
 
     )
   }
+  
 export default Companies;

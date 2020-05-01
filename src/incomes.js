@@ -3,13 +3,17 @@ import React,{useState, useEffect} from 'react';
 
 
 
-const Incomes = () => {
+const Incomes = (props) => {
     const [incomes, setIncomes] = useState([]);
+   console.log(props);
    
     useEffect((props) => {
-      fetch(`https://recruitment.hal.skygate.io/incomes/1`)
+      fetch(`https://recruitment.hal.skygate.io/incomes/${props}`)
       .then(response =>{
         return response.json();
+        
+        
+
     })
     .then(incomes => {
         setIncomes(incomes.incomes);
