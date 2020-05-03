@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './scss/main.scss';
 import Companies from './components/companies';
 import Incomes from './incomes';
+//import Incomes from './incomes';
 
 const App = () =>{
     return(
         <>
+
         <Companies/>
-        
+        <Incomes/>
         </>
 
     ) ;

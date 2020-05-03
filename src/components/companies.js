@@ -1,42 +1,60 @@
-import React,{useState, useEffect} from 'react';
-import Incomes from '../incomes';
+import React, { useState, useEffect } from 'react';
+import Incomes from '../incomes'
+import IncomesValues from './incomesValues'
+
 // import ReactDOM from 'react-dom';
-
-
-const Companies = (id) => {
+const Companies = (company) => {
     const [companies, setCompanies] = useState([]);
-   
-   
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCorrentPage] = useState(1);
+    const[postsPerPage, setPostsPerPage] = useState(20);
+
     useEffect(() => {
-      fetch("https://recruitment.hal.skygate.io/companies")
-      .then(response =>{
-        return response.json();
-    })
-    .then(companies => {
-        setCompanies(companies);
-    })
+        setLoading(true)
+        fetch("https://recruitment.hal.skygate.io/companies")
+            
+            .then(response => {
+                return response.json();
+            })
+            .then(companies => {
+                setCompanies(companies);
+            })
+            setLoading(false);
+    }, []);
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPost = companies.slice(indexOfFirstPost, indexOfLastPost);
     
-    
-    },[]);
-   
-    return(
+    return (
         <>
-        <ul>
-            {companies.map(company =>(
-                <li key={company.id}>
-                <h3>id:{company.id} name: {company.name}</h3>
-                <data>city: {company.city}</data>
-                <Incomes props={company.id}/>
-                
-                
-                
-                
-                </li>
-    ))}
-        </ul>
+            <div><IncomesValues/></div>
+            <div className='mainTab'>
+                <div className='tab'>id</div>
+                <div className='tab'>name</div>
+                <div className='tab'>city</div>
+                <div className='tab'>total income</div>
+                <div className='tab'>average income</div>
+                <div className='tab'>last month income</div>
+            </div>
+                {companies.map(company => (
+                    <div className='mainTab' key={company.id}>
+                        <div className='tab'>{company.id}</div>
+                        <div className='tab'>{company.name}</div>
+                        <div className='tab'>{company.city}</div>
+                        <div className='tab'>{company.city}</div>
+                        <div className='tab'>{company.city}</div>
+                        <div className='tab'>{company.city}</div>
+                        {/* <div className='tab'><Incomes companies={company.id}/></div> */}
+                        
+                    </div>
+                ))}
+
+
+            
+            
         </>
 
     )
-  }
-  
+}
+
 export default Companies;

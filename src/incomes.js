@@ -1,41 +1,36 @@
 import React,{useState, useEffect} from 'react';
 //import Companies from './components/companies';
-
-
-
-const Incomes = (props) => {
+import IncomeValues from './components/incomesValues';
+const Incomes = ({companies},{value}) => {
     const [incomes, setIncomes] = useState([]);
-   console.log(props);
-   
-    useEffect((props) => {
-      fetch(`https://recruitment.hal.skygate.io/incomes/${props}`)
+    useEffect(() => {
+      fetch(`https://recruitment.hal.skygate.io/incomes/1`)
       .then(response =>{
         return response.json();
-        
-        
-
-    })
+        })
     .then(incomes => {
         setIncomes(incomes.incomes);
-        console.log(incomes.incomes);
-        
-        
+
     })
     },[]);
-   
+    
+    console.log();
     return(
+        
+        
+        
         <>
-        <ul>
-            <li></li>
+        <div>
+            
             {incomes.map(income =>(
-                <li key={income.id}>
-                <h3>value: {income.value}</h3>
-                <data>date: {income.date}</data>
-                </li>
+                <div key={income.id}>
+                <div>value: {income.value}</div>
+                <div>date: {income.date}</div>
+                <div>sum of incomes: </div>
+                </div>
     ))}
-        </ul>
+        </div>
         </>
-
     )
   }
 export default Incomes;
