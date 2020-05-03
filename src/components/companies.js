@@ -41,9 +41,9 @@ const Companies = (company) => {
                         <div className='tab'>{company.id}</div>
                         <div className='tab'>{company.name}</div>
                         <div className='tab'>{company.city}</div>
-                        <div className='tab'>{company.city}</div>
-                        <div className='tab'>{company.city}</div>
-                        <div className='tab'>{company.city}</div>
+                        <div className='tab'>{'suma'}</div>
+                        <div className='tab'>{'srednia'}</div>
+                        <div className='tab'>{'ostatni miesiąc'}</div>
                         {/* <div className='tab'><Incomes companies={company.id}/></div> */}
                         
                     </div>
