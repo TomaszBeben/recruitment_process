@@ -44,8 +44,7 @@ const Companies = () => {
                         <div className='tab'>{company.name}</div>
                         <div className='tab'>{company.city}</div>
                         <Incomes id={company.id}/>
-                        <Incomes id={company.id}/>
-                        <Incomes id={company.id}/>
+                        
                         
                         <div></div>
                         
