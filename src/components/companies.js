@@ -3,7 +3,7 @@ import Incomes from '../incomes'
 import IncomesValues from './incomesValues'
 
 // import ReactDOM from 'react-dom';
-const Companies = (company) => {
+const Companies = () => {
     const [companies, setCompanies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCorrentPage] = useState(1);
@@ -44,7 +44,7 @@ const Companies = (company) => {
                         <div className='tab'>{'suma'}</div>
                         <div className='tab'>{'srednia'}</div>
                         <div className='tab'>{'ostatni miesiąc'}</div>
-                        {/* <div className='tab'><Incomes companies={company.id}/></div> */}
+                        <Incomes props={companies}/>
                         
                     </div>
                 ))}
