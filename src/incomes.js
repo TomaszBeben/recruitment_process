@@ -16,19 +16,23 @@ const Incomes = (props) => {
                 .then(incomes => {
                     setIncomes(incomes.incomes);
                     console.log(incomes.incomes);
+                    
+                    console.log(incomes.incomes[0].value);
 
+                    
                     
                 })
         }
     }, []);
-
+    
     return (
 
 
 
         <>
             <div className='tab'>{incomes.reduce((a, b) => a + Number(b.value), 0).toFixed(2)}</div>
-    <div className= 'tab'>{}</div>
+            <div>{incomes && incomes[0].date}</div>
+            <div>{1}</div>
         </>
     )
 }
