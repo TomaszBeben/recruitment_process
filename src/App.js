@@ -8,9 +8,9 @@ import Incomes from './incomes';
 const App = () =>{
     return(
         <>
-
-        <Companies/>
         <Incomes/>
+        <Companies/>
+        
         </>
 
     ) ;
