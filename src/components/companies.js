@@ -1,59 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import Incomes from '../incomes'
-import IncomesValues from './incomesValues'
+import Incomes from './Incomes'
+// import PaginationButtons from './PaginationButtons';
 
-// import ReactDOM from 'react-dom';
 const Companies = () => {
     const [companies, setCompanies] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [currentPage, setCorrentPage] = useState(1);
-    const[postsPerPage, setPostsPerPage] = useState(20);
-
+    // const [currentPage, setCorrentPage] = useState(1);
+    // const [postsPerPage, setPostsPerPage] = useState(20);
     useEffect(() => {
-        setLoading(true)
         fetch("https://recruitment.hal.skygate.io/companies")
-            
             .then(response => {
                 return response.json();
             })
             .then(companies => {
                 setCompanies(companies);
-                setLoading(false);
             })
-            
+
     }, []);
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPost = companies.slice(indexOfFirstPost, indexOfLastPost);
-    
-    
+    // const indexOfLastPost = currentPage * postsPerPage;
+    // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    // const currentPost = companies.slice(indexOfFirstPost, indexOfLastPost);
+
     return (
         <>
-            <div><IncomesValues/></div>
-            <div className='mainTab'>
-                <div className='tab'>id</div>
-                <div className='tab'>name</div>
-                <div className='tab'>city</div>
-                <div className='tab'>total income</div>
-                <div className='tab'>average income</div>
-                <div className='tab'>last month income</div>
+            <div className='mainTab header-tab'>
+                <div className='tab-id'>ID</div>
+                <div className='tab-name'>NAME</div>
+                <div className='tab'>CITY</div>
+                <div className='tab'>TOTAL INCOME</div>
+                <div className='tab'>AVERAGE INCOME</div>
+                <div className='tab'>LAST MONTH INCOME</div>
             </div>
-                {companies.map(company => (
-                    <div className='mainTab' key={company.id}>
-                        <div className='tab'>{company.id}</div>
-                        <div className='tab'>{company.name}</div>
-                        <div className='tab'>{company.city}</div>
-                        <Incomes id={company.id}/>
-                        
-                        
-                        <div></div>
-                        
-                    </div>
-                ))}
+            {/* sorting ?? */}
+            {companies.sort((a, b) => Number(a.id) > Number(b.id)).map(company => (
+                <div className='mainTab' key={company.id}>
+                    <div className='tab-id'>{company.id}</div>
+                    <div className='tab-name'>{company.name}</div>
+                    <div className='tab'>{company.city}</div>
+                    <Incomes id={company.id} />
+
+                </div>
+            ))}
+            {/*Pagination ??*/}
+            {/* <PaginationButtons companies={currentPost} /> */}
 
 
-            
-            
+
+
         </>
 
     )

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Companies from './components/companies';
-import IncomeValues from './components/incomesValues';
 const Incomes = (props) => {
     const [incomes, setIncomes] = useState([]);
     useEffect(() => {
@@ -16,23 +14,15 @@ const Incomes = (props) => {
                 .then(incomes => {
                     setIncomes(incomes.incomes);
                     console.log(incomes.incomes);
-                    
-                    console.log(incomes.incomes[0].value);
-
-                    
-                    
                 })
         }
     }, []);
-    
+    //{incomes.length && incomes[0].date};
     return (
-
-
-
         <>
             <div className='tab'>{incomes.reduce((a, b) => a + Number(b.value), 0).toFixed(2)}</div>
-            <div>{incomes && incomes[0].date}</div>
-            <div>{1}</div>
+            <div className='tab'>{((incomes.reduce((a, b) => a + Number(b.value), 0).toFixed(2)) / (Number(incomes.length))).toFixed(2)}</div>
+            <div className='tab'>{'last month income'}</div>
         </>
     )
 }
