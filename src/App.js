@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './scss/main.scss';
-import Companies from './components/Companies';
+import FetchCompanies from './components/FetchCompanies'
+
 
 
 const App = () =>{
     return(
         <>
-        
-        <Companies/>
-        
+        <FetchCompanies/>
         </>
 
     ) ;
