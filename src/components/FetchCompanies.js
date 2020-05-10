@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Companies from './Companies';
 import Pagination from './Pagination';
+import '../scss/main.scss';
 
 const FetchCompanies = () => {
     const [companies, setCompanies] = useState([]);
@@ -14,12 +15,15 @@ const FetchCompanies = () => {
                 return response.json();
             })
             .then(companies => {
-                setCompanies(companies);
-                return companies;
-
+                setCompanies(companies
+                .sort((a, b) => {
+                    return (a.id - b.id)
+                }))
+                console.log(companies);
+                
             })
 
-    }, []);
+    },[]);
 
     // console.log(companies.length && companies[0].id);
 
@@ -34,7 +38,11 @@ const FetchCompanies = () => {
     // setCompanies = sortCompanies;
     // console.log(companies);
     
-    
+    // console.log(paginate);
+    // setCompanies = () => companies.sort((a, b) => {
+    //     return (a.id - b.id)
+    // })
+
     
     return (
         <div>
