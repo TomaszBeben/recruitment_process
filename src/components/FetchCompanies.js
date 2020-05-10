@@ -25,8 +25,6 @@ const FetchCompanies = () => {
 
     },[]);
 
-    // console.log(companies.length && companies[0].id);
-
     
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;

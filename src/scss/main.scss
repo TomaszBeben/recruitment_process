@@ -1,9 +1,48 @@
 @import './reset.scss';
+$desktop: 500px;
 body {
-    max-width: 100%;
+    max-width: 1100px;
     margin: 0 5% 0 5%;
+    @media screen and (max-width: #{$desktop}) {
+        margin: 0;
+    }
 }
 
+table {
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: bold;
+}
+
+table,
+th,
 td {
-    width: 15%;
+    border: 1px solid black;
+}
+
+tr:nth-child(2n) {
+    background-color: blanchedalmond;
+}
+
+button {
+    border-radius: 50%;
+    border: none;
+    background-color: #27AE60;
+    margin: 3px;
+    &:hover {
+        background-color: #1E8449;
+        cursor: pointer;
+    }
+    @media screen and (max-width: #{$desktop}) {
+        border: 1px solid black !important;
+        border-radius: 0;
+        border: none;
+        background-color: #F1C40F;
+        margin: 0;
+        &:hover {
+            background-color: #B7950B;
+        }
+    }
 }

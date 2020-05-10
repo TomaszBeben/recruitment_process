@@ -3,24 +3,21 @@ import Incomes from './Incomes'
 
 const Companies = ({ companies }) => {
 
-    
-
-
     return (
         <>
             <table>
 
-                <tbody>
+                
                     <tr>
-                        <td >id</td>
-                        <td>name</td>
-                        <td>city</td>
-                        <td>total income</td>
-                        <td>averag income</td>
-                        <td>last income</td></tr>
-                </tbody>
-            </table>
-            <table>
+                        <th className='id'>ID</th>
+                        <th>NAME</th>
+                        <th>CITY</th>
+                        <th>TOTAL INCOME</th>
+                        <th>AVERAGE INCOME</th>
+                        <th>LAST INCOME</th>
+                        </tr>
+                
+            
                 <tbody>
                     {companies.map(company => (
                         <tr key={company.id}>

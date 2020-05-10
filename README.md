@@ -11,7 +11,9 @@ Task for recruitment process
 
 ## General info
 Information about companies was downloaded from 'API'.
-Id, name, city, total income and average income of every company are displayed in the form of table.
+Id, name, city, total income, average income and last date income of every company are displayed in the form of table.
+Application is paginate and sort by id's numbers.
+Site is also scalable and if screen have less then 500px, buttons are changed. 
 
 ## Technologies
 * React 16.13.1

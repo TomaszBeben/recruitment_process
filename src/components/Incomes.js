@@ -13,24 +13,21 @@ const Incomes = (props) => {
                 return incomes.incomes;
             })
     }, []);
-    
-    let sorted = incomes.sort((a, b)=>{
-               return (b.value - a.value) 
+
+    const newest = new Date(
+        Math.max.apply(
+            null,
+            incomes.map((e) => {
+                return new Date(e.date);
             })
-            let sortDate = incomes.sort((a, b)=>{
-                return (b.date - a.date) 
-             })
-             console.log(sortDate);
-             
-            // const lastDate = sorted.length && sorted[0].date.Date.parse()
-            // console.log(lastDate);
-            
-    
-            return (
+        )
+    );
+
+    return (
         <>
-            <th className='tab'>{incomes.reduce((a, b) => a + Number(b.value), 0).toFixed(2)}</th>
-            <th className='tab'>{((incomes.reduce((a, b) => a + Number(b.value), 0).toFixed(2)) / (Number(incomes.length))).toFixed(2)}</th>
-            <th className='tab'>{sorted.length && sorted[0].value}</th>
+            <td >{incomes.reduce((a, b) => a + Number(b.value), 0).toFixed(2)}</td>
+            <td >{((incomes.reduce((a, b) => a + Number(b.value), 0).toFixed(2)) / (Number(incomes.length))).toFixed(2)}</td>
+            <td>{newest.toLocaleString()}</td>
         </>
     )
 }
