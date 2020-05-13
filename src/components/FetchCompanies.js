@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Companies from './Companies';
+import Companies from './companies';
 import Pagination from './Pagination';
 import '../scss/main.scss';
 
