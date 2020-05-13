@@ -16,4 +16,4 @@ const App = () =>{
 document.addEventListener('DOMContentLoaded', function() {
     ReactDOM.render(<App/>,document.getElementById('app'))
 })
-export default App;
+export default App
